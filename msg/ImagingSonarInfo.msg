@@ -11,10 +11,11 @@
 
 Header header
 
-# Sonar information
+# Basic sonar information
 float32 frequency # [kHz]
 float32 elevation_angle # [rad]
 float32 beam_width # [rad]
+float32 gain # [0-100%]
 
 # Data information
 uint8 IMAGE_XY = 0
@@ -30,4 +31,4 @@ float32[] bearing_table
 # Ranging information
 float32 range_min # [m]
 float32 range_max # [m]
-float32 range_resolution # [m/px] 
+float32 range_resolution # [m/px]
