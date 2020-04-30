@@ -26,7 +26,7 @@ uint8 image_type
 float32 bearing_min # [rad]
 float32 bearing_max # [rad]
 float32 bearing_resolution # [rad]
-float32[] bearing_table
+float64[] bearing_table
 
 # Ranging information
 float32 range_min # [m]
