@@ -18,17 +18,18 @@ float32 beam_width # [rad]
 float32 gain # [0-100%]
 
 # Data information
-uint8 IMAGE_XY = 0
-uint8 IMAGE_POLAR = 1
+uint8 IMAGE_TYPE_AUTO = 0
+uint8 IMAGE_TYPE_POLAR = 1
+uint8 IMAGE_TYPE_CARTESIAN = 2
 uint8 image_type
 
 # Swath information
-float32 bearing_min # [rad]
-float32 bearing_max # [rad]
+float32 bearing_start # [rad]
+float32 bearing_stop # [rad]
 float32 bearing_resolution # [rad]
 float64[] bearing_table
 
 # Ranging information
-float32 range_min # [m]
-float32 range_max # [m]
+float32 range_start # [m]
+float32 range_stop # [m]
 float32 range_resolution # [m/px]
