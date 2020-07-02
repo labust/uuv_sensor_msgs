@@ -16,6 +16,7 @@ float32 frequency # [kHz]
 float32 elevation_angle # [rad]
 float32 beam_width # [rad]
 float32 gain # [0-100%]
+float32 sound_speed # [m/s]
 
 # Data information
 uint8 IMAGE_TYPE_AUTO = 0
