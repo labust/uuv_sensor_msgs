@@ -1,27 +1,31 @@
 ## Based on: 
-## 1. UUV Simulator (https://github.com/uuvsimulator/uuv_simulator)
-## 2. Marine ROS Conventions Discussion (https://github.com/udgcirs/marine_ros_conventions_discussion)
+## - UUV Simulator (https://github.com/uuvsimulator/uuv_simulator)
+## - Marine ROS Conventions Discussion (https://github.com/udgcirs/marine_ros_conventions_discussion)
 ## This is a message to hold data from a Doppler Velocity Logger (DVL).
 ## 
 ## Notes:
-##   1. Unknown covariance should be filled with zeros.
-##   2. Select the velocity reference.
-##   3. Invalid velocity measurements should not publish this message.
-
+##   - unknown covariance should be filled with zeros.
+##   - select the velocity reference as WATER or BOTTOM.
+##   - for valid measurements but unknown reference use the UNKNOWN identifier.
+##   - for invalid measurement acquisition don't publish the message. If you need to publish, fill with NaNs.
+##   - we assume that DVLs usually provide also an altitude value. In case yours don't use NaN for this value.
+##   - if individual beam ranges are available fill the beam_ranges vector. For invalid beam ranges use NaN.
 Header header
 
-# Measured velocity [m/s] in header.frame_id
+# Measured velocity [m/s] in header.frame_id.
 geometry_msgs/Vector3 velocity
 # Row major, xyz axes
 float64[9] velocity_covariance
 
-# Altitude from bottom in header.frame_id
+# Altitude from reference layer in header.frame_id, specified in [m].
 float64 altitude
 float64 altitude_covariance
 
-# Instrument reference data
-uint8 VELOCITY_REFERENCE_UNKNOWN = 0
-uint8 VELOCITY_REFERENCE_WATER = 1
-uint8 VELOCITY_REFERENCE_BOTTOM = 2
+# Individual DVL beam ranges in [m]
+float64[] beam_ranges
 
+# Instrument reference specifier
+uint8 VELOCITY_REFERENCE_UNKOWN = 1
+uint8 VELOCITY_REFERENCE_WATER = 2
+uint8 VELOCITY_REFERENCE_BOTTOM = 3
 uint8 velocity_reference
