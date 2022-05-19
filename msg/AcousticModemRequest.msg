@@ -23,4 +23,4 @@ uint8 scheduled
 uint8[] msg
 
 # request id (0 - 255)
-uint8 id
+int32 id

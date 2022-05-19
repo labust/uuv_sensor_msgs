@@ -6,4 +6,4 @@ Header header
 int32 range
 # measured range in meters
 float32 range_m
-int16 id
+int32 id
