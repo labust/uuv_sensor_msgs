@@ -1,9 +1,17 @@
 # add timestamp
 std_msgs/Header header
 
-# types of messages
-uint8 BRDCST = 0
-uint8 UNICST = 1
+# types of request CONSTANTS
+uint8 BRDCST = 1
+uint8 UNICST = 2
+uint8 PINGID = 3
+uint8 VOLTID = 4
+uint8 CHNGID = 5
+uint8 STATUS = 6
+uint8 UNICSTACK = 7
+uint8 TESTMSG = 8
+uint8 ECHOMSG = 9
+uint8 QUALITY = 10
 
 # raw message array
 uint8[] msg
@@ -14,3 +22,9 @@ int32 sender_id
 
 # type of the message
 uint8 msg_type
+
+# id (0 - 255 valid address, -1 unknown used for incomming message)
+int16 id
+
+# range acquired from acoustic modem
+float64 range
