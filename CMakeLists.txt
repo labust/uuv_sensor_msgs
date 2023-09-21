@@ -17,6 +17,7 @@ find_package(rosidl_default_generators REQUIRED)
 find_package(rclpy REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
 
 set(msg_files
 	"msg/AcousticModemPayload.msg"
@@ -26,7 +27,12 @@ set(msg_files
 	"msg/Depth.msg"
 	"msg/DVL.msg"
 	"msg/ImagingSonarInfo.msg"
+	"msg/VirtualTargetInfo.msg"
+	"msg/VirtualTargetTracks.msg"
 )
+
+find_package(rosidl_default_generators REQUIRED)
+
 
 rosidl_generate_interfaces(${PROJECT_NAME}
 	${msg_files}
@@ -34,6 +40,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 	builtin_interfaces
 	sensor_msgs
 	std_msgs
+	nav_msgs
 	rosidl_default_generators
 )
 
